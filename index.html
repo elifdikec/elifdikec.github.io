@@ -42,7 +42,7 @@
         opacity: 0.5;
       }
       .page-content {
-        font-size: 30px;
+        font-size: 25px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -63,7 +63,7 @@
       .page-content__inner {
         width: 100%;
         padding: 30px;
-        max-width: 900px;
+        max-width: 800px;
         padding-top: 25px;
       }
       menu {
@@ -129,7 +129,13 @@
       }
       #music tr td:nth-child(2) {
         padding: 0 20px;
-        white-space: nowrap;
+        /* white-space: nowrap; */
+      }
+      #music tr td:first-child {
+        cursor: pointer;
+      }
+      #music tr td:last-child {
+        width: 100%;
       }
       #music tr td:first-child:before {
         content: '▶︎'
@@ -171,7 +177,7 @@
     <div id="about" class="page-content">
       <div class="page-content__inner">
         <p>Elif Dikec is a musician from Istanbul currently based in Cologne, Germany. Holding a degree in classical piano performance from Yıldız Technical University – Arts and Design Faculty (class of Ali Darmar), she focuses on production of popular music, arranging, composing, singing and writing lyrics both in English and Turkish.</p>
-        <p>She currently studies at the Institute of Popular Music (M.A) – Folkwang University of Arts, performs music at the Düsseldorf Schauspielhaus in the play ‘Romeo and Julia’ (Regie: Bernadette Sonnenbichler), writes and performs with the band Tired Eyes Kingdom, writes for other collaborations, also now focuses on the production of her first solo album to be released in Fall 2018.</p>
+        <p>She currently studies at the Institute of Popular Music (M.A) – Folkwang University of Arts, performs music at the Düsseldorf Schauspielhaus in the play ‘Romeo and Julia’ (Regie: Bernadette Sonnenbichler), writes and performs with the band Tired Eyes Kingdom, writes for other collaborations, also now focuses on the production of her first solo album to be released in Fall 2018.</p>
       </div>
     </div>
     <div id="music" class="page-content">
@@ -181,16 +187,16 @@
             <tr>
               <th colspan="3">Own Projects and Collaborations</th>
             </tr>
-            <tr><td></td><td>Gras</td><td>vocals, synths, lyrics, music and arrangements</td></tr>
-            <tr><td></td><td>Tired Eyes Kingdom</td><td>songwriter, arranger, producer, synths, lyrics, vocals</td></tr>
-            <tr><td></td><td>Gantz</td><td>vocals</td></tr>
-            <tr><td></td><td>Stiver</td><td>vocals</td></tr>
+            <tr><td data-sample="1 - a myth clip.wav"></td><td>Gras</td><td>vocals, synths, lyrics, music and arrangements</td></tr>
+            <tr><td data-sample="3 - theplan clip.wav"></td><td>Tired Eyes Kingdom</td><td>vocals, synths, songwriter, arranger, producer</td></tr>
+            <tr><td data-sample="4 - fugazi clip.wav"></td><td>Gantz – Fugazi</td><td>vocals</td></tr>
+            <tr><td data-sample="5 - whatever clip.wav"></td><td>Stiver – Whatever</td><td>vocals</td></tr>
             <tr>
               <th colspan="3">Other Contributions</th>
             </tr>
-            <tr><td></td><td>Sonae</td><td>piano</td></tr>
-            <tr><td></td><td>Danslı Parti</td><td>backing vocals</td></tr>
-            <tr><td></td><td>Ceylan Ertem</td><td>backing vocals</td></tr>
+            <tr><td data-sample="6 - wearehere clip.wav"></td><td>Sonae – Wearehere</td><td>piano</td></tr>
+            <tr><td data-sample="7 - devekusu clip.wav"></td><td>Danslı Parti – ii</td><td>backing vocals</td></tr>
+            <tr><td data-sample="8 - gidipdinlen clip.wav"></td><td>Ceylan Ertem – Gidip Dinlenmeliyim</td><td>backing vocals</td></tr>
           </tbody>
         </table>
       </div>
@@ -220,16 +226,29 @@
       })
 
       var audios = document.querySelectorAll('#music tr td:first-child')
-      console.log('audios', audios)
+      var audioFile = null
       ;[].forEach.call(audios, function (audio) {
         audio.addEventListener('click', function (event) {
           if (event.target.className === 'play') {
+            // stop
             event.target.className = null
+            if (audioFile && typeof audioFile.pause === 'function') {
+              audioFile.pause()
+              audioFile.currentTime = 0
+            }
           } else {
             ;[].forEach.call(audios, function (audio) {
               audio.className = null
             })
             event.target.className = 'play'
+            if (event.target.dataset && event.target.dataset.sample) {
+              if (audioFile && typeof audioFile.pause === 'function') {
+                audioFile.pause()
+                audioFile.currentTime = 0
+              }
+              audioFile = new Audio('/samples/' + event.target.dataset.sample)
+              audioFile.play()
+            }
           }
         })
       })
