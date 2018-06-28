@@ -5,6 +5,7 @@
     <title>Elif Dikec — a musician</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
+    <script src="https://unpkg.com/navigo@6"></script>
     <style type="text/css">
       html, body {
         padding: 0;
@@ -22,13 +23,6 @@
       body {
         position: relative;
       }
-      .hidden {
-        position: absolute;
-        opacity: 0;
-        top: -99999;
-        width: 1px;
-        height: 1px;
-      }
       .background {
         position: absolute;
         top: 0;
@@ -40,33 +34,14 @@
         background-size: cover;
         background-repeat: no-repeat;
         z-index: 10;
-        opacity: 0.7;
+        opacity: 1;
+        transition: opacity 400ms;
       }
-      .transparent {
-        background-image: url('images/DSC05116_edited-transparent.png');
-        opacity: 0.7;
-        pointer-events: none;
-        z-index: 30;
-        opacity: 0;
-        transition: opacity 200ms;
+      body.music .background,
+      body.about .background {
+        opacity: 0.5;
       }
-      #thirdLayer.show {
-        opacity: 0.7;
-        /* background-color: red; */
-      }
-      #player {
-        width: 100%;
-        position: fixed;
-        bottom: -4px;
-        left: 0;
-        z-index: 100;
-        background-color: #303030;
-      }
-      #player #player-inner {
-        margin: 0 auto;
-        width: 700px !important;
-      }
-      #bio {
+      .page-content {
         font-size: 30px;
         display: flex;
         justify-content: center;
@@ -75,63 +50,185 @@
         width: 100%;
         z-index: 20;
         position: relative;
-        text-indent: 3em;
         text-align: justify;
         opacity: 0;
-        transition: opacity 200ms;
+        text-shadow: 2px 2px 1px white;
+        color: rgba(255, 255, 255, 0);
+        transition: opacity 400ms;
+        display: none;
       }
-      #bio.show {
-        opacity: 1;
+      #about {
+        text-indent: 3em;
       }
-      #bio-inner {
+      .page-content__inner {
         width: 100%;
         padding: 30px;
         max-width: 900px;
         padding-top: 25px;
       }
       @media (max-width: 1000px) {
-        #bio {
+        .page-content {
           font-size: 25px;
         }
       }
       @media (max-width: 600px) {
-        #bio {
+        .page-content {
           font-size: 18px;
           /* align-items: flex-start; */
         }
-        #bio-inner {
+        .page-content__inner {
           padding-top: 0px;
         }
       }
       @media (max-width: 350px) {
-        #bio {
+        .page-content {
           font-size: 16px;
         }
+      }
+      menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+      }
+      .menu__item {
+        display: inline-block;
+        font-size: 25px;
+        border-radius: 20px;
+        border: 1.5px solid white;
+        padding: 0 10px;
+        margin-right: 10px;
+        transition: all 300ms;
+        cursor: pointer;
+        user-select: none;
+        text-decoration: none;
+        color: inherit;
+      }
+      .menu__item:hover {
+        background-color: white;
+        color: black;
+      }
+      body.music .music,
+      body.about .about {
+        background-color: white;
+        color: black;
+      }
+      .menu__item:active {
+        background-color: black !important;
+        color: white !important;
+      }
+      .about #about {
+        opacity: 1;
+        display: flex;
+      }
+      .music #music {
+        opacity: 1;
+        display: flex;
+      }
+      #music {
+        text-align: left;
+      }
+      #music tr th {
+        padding-bottom: 20px;
+        padding-top: 40px;
+        font-weight: normal;
+      }
+      #music tr:first-child th {
+        padding-top: 0px;
+      }
+      #music tr td {
+        font-size: 85%;
+        vertical-align: top;
+      }
+      #music tr td:nth-child(2) {
+        padding: 0 10px;
+        white-space: nowrap;
+      }
+      #music tr td:first-child:before {
+        content: '▶︎'
+      }
+      #music tr td.play:before {
+        content: '◼︎'
       }
     </style>
   </head>
   <body>
+    <menu>
+      <a class="menu__item music" href="#music">Music</a>
+      <a class="menu__item about" href="#about">About</a>
+    </menu>
     <div id="firstLayer" class="background"></div>
-    <div id="bio">
-      <div id="bio-inner">
+    <div id="about" class="page-content">
+      <div class="page-content__inner">
         <p>Elif Dikec is a musician from Istanbul currently based in Cologne, Germany. Holding a degree in classical piano performance from Yıldız Technical University – Arts and Design Faculty (class of Ali Darmar), she focuses on production of popular music, arranging, composing, singing and writing lyrics both in English and Turkish.</p>
         <p>She currently studies at the Institute of Popular Music (M.A) – Folkwang University of Arts, performs music at the Düsseldorf Schauspielhaus in the play ‘Romeo and Julia’ (Regie: Bernadette Sonnenbichler), writes and performs with the band Tired Eyes Kingdom, writes for other collaborations, also now focuses on the production of her first solo album to be released in Fall 2018.</p>
       </div>
     </div>
-    <div id="thirdLayer" class="background transparent"></div>
-    <img class="hidden" src="images/DSC05116_edited-progressive.jpg"></img>
-    <img class="hidden" src="images/DSC05116_edited-transparent.png"></img>
-    <div id="player">
-      <div id="player-inner">
-        <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=1350570121/size=small/bgcol=333333/linkcol=ffffff/transparent=true/" seamless><a href="http://gras.bandcamp.com/album/turmoil">Turmoil by Gras</a></iframe>
+    <div id="music" class="page-content">
+      <div class="page-content__inner">
+        <table>
+          <tbody>
+            <tr>
+              <th colspan="3">Own Projects and Collaborations</th>
+            </tr>
+            <tr><td></td><td>Gras</td><td>vocals, synths, lyrics, music and arrangements</td></tr>
+            <tr><td></td><td>Tired Eyes Kingdom</td><td>songwriter, arranger, producer, synths, lyrics, vocals</td></tr>
+            <tr><td></td><td>Gantz</td><td>vocals</td></tr>
+            <tr><td></td><td>Stiver</td><td>vocals</td></tr>
+            <tr>
+              <th colspan="3">Other Contributions</th>
+            </tr>
+            <tr><td></td><td>Sonae</td><td>piano</td></tr>
+            <tr><td></td><td>Danslı Parti</td><td>backing vocals</td></tr>
+            <tr><td></td><td>Ceylan Ertem</td><td>backing vocals</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
     <script type="text/javascript">
-      var animateText = function () {
-        document.getElementById('bio').className = 'show'
-        document.getElementById('thirdLayer').className = 'background transparent show'
-      }
-      setTimeout(animateText, 3000)
+      // setup routes
+      var router = new Navigo(null, true)
+      router.on(function () {
+        document.body.className = null
+      })
+      .on('music', function () {
+        document.body.className = 'music'
+      })
+      .on('about', function () {
+        document.body.className = 'about'
+      })
+      .resolve()
+
+      // navigate to root on a second click
+      var menuItems = document.getElementsByClassName('menu__item')
+      ;[].forEach.call(menuItems, function (menuItem) {
+        menuItem.addEventListener('click', function (event) {
+          if (event.target.href !== window.location.href) return
+          event.preventDefault()
+          router.navigate()
+        })
+      })
+
+      var audios = document.querySelectorAll('#music tr td:first-child')
+      console.log('audios', audios)
+      ;[].forEach.call(audios, function (audio) {
+        audio.addEventListener('click', function (event) {
+          if (event.target.className === 'play') {
+            event.target.className = null
+          } else {
+            ;[].forEach.call(audios, function (audio) {
+              audio.className = null
+            })
+            event.target.className = 'play'
+          }
+        })
+      })
+
+      // var animateText = function () {
+      //   document.getElementById('bio').className = 'show'
+      //   document.getElementById('thirdLayer').className = 'background transparent show'
+      // }
+      // setTimeout(animateText, 3000)
     </script>
   </body>
 </html>
