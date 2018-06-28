@@ -66,29 +66,11 @@
         max-width: 900px;
         padding-top: 25px;
       }
-      @media (max-width: 1000px) {
-        .page-content {
-          font-size: 25px;
-        }
-      }
-      @media (max-width: 600px) {
-        .page-content {
-          font-size: 18px;
-          /* align-items: flex-start; */
-        }
-        .page-content__inner {
-          padding-top: 0px;
-        }
-      }
-      @media (max-width: 350px) {
-        .page-content {
-          font-size: 16px;
-        }
-      }
       menu {
         position: fixed;
         top: 0;
         right: 0;
+        text-align: center;
         z-index: 1000;
       }
       .menu__item {
@@ -103,6 +85,9 @@
         user-select: none;
         text-decoration: none;
         color: inherit;
+      }
+      .menu__item:first-child {
+        margin-left: 10px;
       }
       .menu__item:hover {
         background-color: white;
@@ -131,17 +116,17 @@
       #music tr th {
         padding-bottom: 20px;
         padding-top: 40px;
-        font-weight: normal;
+        /* font-weight: normal; */
       }
       #music tr:first-child th {
         padding-top: 0px;
       }
       #music tr td {
-        font-size: 85%;
+        /* font-size: 85%; */
         vertical-align: top;
       }
       #music tr td:nth-child(2) {
-        padding: 0 10px;
+        padding: 0 20px;
         white-space: nowrap;
       }
       #music tr td:first-child:before {
@@ -149,6 +134,27 @@
       }
       #music tr td.play:before {
         content: '◼︎'
+      }
+      @media (max-width: 1000px) {
+        .page-content {
+          font-size: 25px;
+        }
+      }
+      @media (max-width: 600px) {
+        menu {
+          width: 100%;
+        }
+        .page-content {
+          font-size: 18px;
+        }
+        .page-content__inner {
+          padding-top: 70px;
+        }
+      }
+      @media (max-width: 350px) {
+        .page-content {
+          font-size: 16px;
+        }
       }
     </style>
   </head>
