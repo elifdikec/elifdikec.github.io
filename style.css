@@ -1,0 +1,186 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+  font-family: 'Amiri', serif;
+  line-height: 1.2;
+  font-weight: lighter;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  position: relative;
+}
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/DSC05116_edited-progressive.jpg');
+  background-position: 50% 40%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 400ms;
+}
+body.music .background,
+body.about .background {
+  opacity: 0.5;
+}
+.page-content {
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  z-index: 20;
+  position: relative;
+  text-align: justify;
+  opacity: 0;
+  text-shadow: 2px 2px 1px white;
+  color: rgba(255, 255, 255, 0);
+  transition: opacity 400ms;
+  display: none;
+}
+#about {
+  text-indent: 3em;
+}
+.page-content__inner {
+  width: 100%;
+  padding: 30px;
+  max-width: 800px;
+  padding-top: 25px;
+}
+menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  text-align: center;
+  z-index: 1000;
+}
+.menu__item {
+  display: inline-block;
+  font-size: 25px;
+  border-radius: 20px;
+  border: 1.5px solid white;
+  padding: 0 10px;
+  margin-right: 10px;
+  transition: all 300ms;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  color: inherit;
+}
+.menu__item:first-child {
+  margin-left: 10px;
+}
+@media (hover: hover) {
+  .menu__item:hover {
+    background-color: white;
+    color: black;
+  }
+}
+body.music .music,
+body.about .about {
+  background-color: white;
+  color: black;
+}
+.menu__item:active {
+  background-color: black !important;
+  color: white !important;
+}
+.about #about {
+  opacity: 1;
+  display: flex;
+}
+.music #music {
+  opacity: 1;
+  display: flex;
+}
+#music {
+  text-align: left;
+}
+#music tr th {
+  padding-bottom: 20px;
+  padding-top: 40px;
+  font-weight: bold;
+}
+#music tr:first-child th {
+  padding-top: 0px;
+}
+#music tr td {
+  vertical-align: top;
+}
+#music tr td:nth-child(2) {
+  padding: 0 20px;
+}
+#music tr td:nth-child(3) {
+  width: 100%;
+}
+#music tr td:first-child {
+  cursor: pointer;
+}
+#music tr td:last-child {
+  width: 100%;
+}
+#music tr td:first-child:before {
+  content: '▶︎'
+}
+#music tr td.play:before {
+  content: '◼︎'
+}
+#music tr td:last-child {
+  padding-right: 10px;
+}
+#music a {
+  width: 40px;
+  vertical-align: center;
+  transform: translateY(3px);
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: left;
+  filter: blur(0.7px);
+}
+#music a.bandcamp {
+  height: 15px;
+  background-image: url('/images/bandcamp-white.svg');
+}
+#music a.itunes {
+  height: 19px;
+  background-image: url('/images/itunes-white.svg');
+}
+@media (max-width: 1000px) {
+  .page-content {
+    font-size: 25px;
+  }
+}
+@media (max-width: 600px) {
+  menu {
+    width: 100%;
+  }
+  #music tr td:nth-child(2) {
+    padding: 0 10px;
+  }
+  #music a {
+    filter: none;
+  }
+  .page-content {
+    text-shadow: none;
+    color: white;
+    font-size: 18px;
+  }
+  .page-content__inner {
+    padding-top: 70px;
+  }
+}
+@media (max-width: 350px) {
+  .page-content {
+    font-size: 16px;
+  }
+}
