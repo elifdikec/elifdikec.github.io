@@ -89,9 +89,11 @@
       .menu__item:first-child {
         margin-left: 10px;
       }
-      .menu__item:hover {
-        background-color: white;
-        color: black;
+      @media (hover: hover) {
+        .menu__item:hover {
+          background-color: white;
+          color: black;
+        }
       }
       body.music .music,
       body.about .about {
@@ -145,6 +147,8 @@
           width: 100%;
         }
         .page-content {
+          text-shadow: none;
+          color: white;
           font-size: 18px;
         }
         .page-content__inner {
