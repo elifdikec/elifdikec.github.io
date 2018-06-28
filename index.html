@@ -146,6 +146,9 @@
       #music tr td.play:before {
         content: '◼︎'
       }
+      #music tr td:last-child {
+        padding-right: 10px;
+      }
       #music a {
         width: 40px;
         vertical-align: center;
@@ -171,6 +174,12 @@
       @media (max-width: 600px) {
         menu {
           width: 100%;
+        }
+        #music tr td:nth-child(2) {
+          padding: 0 10px;
+        }
+        #music a {
+          filter: none;
         }
         .page-content {
           text-shadow: none;
