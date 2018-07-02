@@ -88,7 +88,7 @@ body.about .menu__item {
   margin-left: 10px;
 }
 @media (hover: hover) {
-  .menu__item:hover {
+  body .menu__item:hover {
     background-color: white;
     color: black;
   }
