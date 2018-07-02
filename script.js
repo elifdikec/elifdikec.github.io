@@ -18,6 +18,9 @@ var menuItems = document.getElementsByClassName('menu__item')
     if (event.target.href !== window.location.href) return
     event.preventDefault()
     router.navigate()
+    if (history.replaceState) {
+      history.replaceState({}, document.title, '.')
+    }
   })
 })
 
