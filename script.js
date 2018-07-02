@@ -21,32 +21,34 @@ var menuItems = document.getElementsByClassName('menu__item')
   })
 })
 
+// play audios
 var audios = document.querySelectorAll('#music tr td:first-child')
 var audioFile = null
+const play = function (element) {
+  if (!element.dataset || !element.dataset.sample) return
+  // stop first
+  stop(element)
+  ;[].forEach.call(audios, function (audio) {
+    audio.className = null
+  })
+  // play
+  element.className = 'play'
+  audioFile = new Audio('/samples/' + element.dataset.sample)
+  audioFile.onended = stop.bind(null, element)
+  audioFile.play()
+}
+const stop = function (element) {
+  if (element) element.className = null
+  if (!audioFile || typeof audioFile.pause !== 'function') return
+  audioFile.pause()
+  audioFile.currentTime = 0
+}
 ;[].forEach.call(audios, function (audio) {
   audio.addEventListener('click', function (event) {
     if (event.target.className === 'play') {
-      // stop
-      event.target.className = null
-      if (audioFile && typeof audioFile.pause === 'function') {
-        audioFile.pause()
-        audioFile.currentTime = 0
-      }
+      stop(event.target)
     } else {
-      ;[].forEach.call(audios, function (audio) {
-        audio.className = null
-      })
-      event.target.className = 'play'
-      if (event.target.dataset && event.target.dataset.sample) {
-        // stop first
-        if (audioFile && typeof audioFile.pause === 'function') {
-          audioFile.pause()
-          audioFile.currentTime = 0
-        }
-        // play
-        audioFile = new Audio('/samples/' + event.target.dataset.sample)
-        audioFile.play()
-      }
+      play(event.target)
     }
   })
 })
