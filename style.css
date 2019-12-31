@@ -139,7 +139,7 @@ body.about .about {
   margin: 0;
   border: none;
 }
-#music tr button:first-child:before {
+#music tr button:before {
   content: '▶︎'
 }
 #music tr button.play:before {
