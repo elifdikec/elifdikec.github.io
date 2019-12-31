@@ -25,7 +25,7 @@ var menuItems = document.getElementsByClassName('menu__item')
 })
 
 // play audios
-var audios = document.querySelectorAll('#music tr td:first-child')
+var audios = document.querySelectorAll('#music tr button')
 var audioFile = null
 const play = function (element) {
   if (!element.dataset || !element.dataset.sample) return

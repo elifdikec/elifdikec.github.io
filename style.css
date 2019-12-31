@@ -130,17 +130,23 @@ body.about .about {
 #music tr td:nth-child(3) {
   width: 100%;
 }
-#music tr td:first-child {
+#music tr button {
   cursor: pointer;
+  background: none;
+  font-size: inherit;
+  color: white;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+#music tr button:first-child:before {
+  content: '▶︎'
+}
+#music tr button.play:before {
+  content: '◼︎'
 }
 #music tr td:last-child {
   width: 100%;
-}
-#music tr td:first-child:before {
-  content: '▶︎'
-}
-#music tr td.play:before {
-  content: '◼︎'
 }
 #music tr td:last-child {
   padding-right: 10px;
