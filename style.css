@@ -152,6 +152,7 @@ body.about .about {
   display: inline-block;
   background-repeat: no-repeat;
   background-position: left;
+  background-size: contain;
   filter: blur(0.7px);
 }
 #music a.bandcamp {
@@ -161,6 +162,10 @@ body.about .about {
 #music a.itunes {
   height: 19px;
   background-image: url('/images/itunes-white.svg');
+}
+#music a.soundcloud {
+  height: 19px;
+  background-image: url('/images/sound-cloud.svg');
 }
 @media (max-width: 1000px) {
   .page-content {

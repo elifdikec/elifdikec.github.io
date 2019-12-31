@@ -17,6 +17,10 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'UA-121944716-1');
+      window.onhashchange = function() {
+        // ga('send', 'pageview', location.hash);
+        gtag('event', 'page_view', { 'send_to': 'GA_TRACKING_ID' })
+      }
     </script>
   </head>
   <body>
@@ -37,6 +41,18 @@
           <tbody>
             <tr>
               <th colspan="4">Own Projects and Collaborations</th>
+            </tr>
+            <tr>
+              <td data-sample="0 - itmeden clip.m4a"></td>
+              <td>İtmeden</td>
+              <td>vocals, synths, songwriter, arranger, producer</td>
+              <td><a class="bandcamp" href="https://elifdikec.bandcamp.com" target="_blank"></a></td>
+            </tr>
+            <tr>
+              <td data-sample="0 - rabid clip.m4a"></td>
+              <td>Rabid</td>
+              <td>vocals</td>
+              <td><a class="soundcloud" href="https://www.exitrecords.co.uk/collections/frontpage/products/exit086-gantz-garam-rabid" target="_blank"></a></td>
             </tr>
             <tr>
               <td data-sample="1 - a myth clip.wav"></td>
