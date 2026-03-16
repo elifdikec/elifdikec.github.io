@@ -1,109 +1,272 @@
-<!doctype html>
-<!--
-  Picture and code are by Valia Fetisov
-  https://valiafetisov.com
--->
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Elif Dikec — a musician</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='stylesheet' href='/style.css?191231' type='text/css' media='all'>
-    <link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
-    <script src="/libs/navigo.min.js" type="text/javascript"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121944716-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-121944716-1');
-      window.onhashchange = function() {
-        // ga('send', 'pageview', location.hash);
-        gtag('event', 'page_view', { 'send_to': 'GA_TRACKING_ID' })
-      }
-    </script>
-  </head>
-  <body>
-    <menu>
-      <a class="menu__item music" href="#music">Music</a>
-      <a class="menu__item about" href="#about">About</a>
-    </menu>
-    <div id="firstLayer" class="background"></div>
-    <div id="about" class="page-content">
-      <div class="page-content__inner">
-        <p>Elif Dikec is a musician from Istanbul currently based in Cologne, Germany. Holding degrees in Classical Piano Performance (BM) Yıldız Technical University and Popular Music (MM) Institute of Popular Music, Folkwang University of Arts; she focuses on producing, composing, singing and songwriting for various projects.</p>
-        <p>She has recently been composing and performing at the Bühne 1 play 'Norway.Today' (Regie: Michael Gubenko) with her band Tired Eyes Kingdom and performing at the Düsseldorfer Schauspielhaus play 'Romeo und Julia' (Regie: Bernadette Sonnenbichler). She currently focuses on writing, performing with TEK and releasing her solo project.</p>
-      </div>
-    </div>
-    <div id="music" class="page-content">
-      <div class="page-content__inner">
-        <table>
-          <tbody>
-            <tr>
-              <th colspan="4">Own Projects and Collaborations</th>
-            </tr>
-            <tr>
-              <td><button title="play sample" data-sample="0 - itmeden clip.m4a"></button></td>
-              <td>İtmeden</td>
-              <td>vocals, synths, songwriter, arranger, producer</td>
-              <td><a class="bandcamp" href="https://elifdikec.bandcamp.com" target="_blank"></a></td>
-            </tr>
-            <tr>
-              <td><button title="play sample" data-sample="0 - rabid clip.m4a"></button></td>
-              <td>Rabid</td>
-              <td>vocals</td>
-              <td><a class="soundcloud" href="https://www.exitrecords.co.uk/collections/frontpage/products/exit086-gantz-garam-rabid" target="_blank"></a></td>
-            </tr>
-            <tr>
-              <td><button title="play sample" data-sample="1 - a myth clip.wav"></button></td>
-              <td>Gras</td>
-              <td>vocals, synths, lyrics, music and arrangements</td>
-              <td><a class="bandcamp" href="https://gras.bandcamp.com/releases" target="_blank"></a></td>
-            </tr>
-            <tr>
-              <td><button title="play sample" data-sample="3 - theplan clip.wav"></button></td>
-              <td>Tired Eyes Kingdom</td>
-              <td>vocals, synths, songwriter, arranger, producer</td>
-              <td><a class="bandcamp" href="https://tiredeyeskingdom.bandcamp.com/releases" target="_blank"></a></td>
-            </tr>
-            <tr>
-              <td><button title="play sample" data-sample="4 - fugazi clip.wav"></button></td>
-              <td>Gantz – Fugazi</td>
-              <td>vocals</td>
-              <td><a class="itunes" href="https://itunes.apple.com/album/fugazi-feat-elif-dike%C3%A7/1328897806?i=1328897807&l=en" target="_blank"></a></td>
-            </tr>
-            <tr>
-              <td><button title="play sample" data-sample="5 - whatever clip.wav"></button></td>
-              <td>Stiver – Whatever</td>
-              <td>vocals</td>
-              <td><a class="bandcamp" href="https://stiver.bandcamp.com/track/whatever" target="_blank"></a></td>
-            </tr>
-            <tr>
-              <th colspan="4">Other Contributions</th>
-            </tr>
-            <tr>
-              <td><button title="play sample" data-sample="6 - wearehere clip.wav"></button></td>
-              <td>Sonae – Wearehere</td>
-              <td>piano</td>
-              <td><a class="itunes" href="https://itunes.apple.com/album/we-are-here/1361178398?i=1361178768&l=en" target="_blank"></a></td>
-            </tr>
-            <tr>
-              <td><button title="play sample" data-sample="7 - devekusu clip.wav"></button></td>
-              <td>Danslı Parti – ii</td>
-              <td>backing vocals</td>
-              <td><a class="itunes" href="https://itunes.apple.com/album/ii-ep/1351646343?l=en" target="_blank"></a></td>
-            </tr>
-            <tr>
-              <td><button title="play sample" data-sample="8 - gidipdinlen clip.wav"></button></td>
-              <td>Ceylan Ertem – Gidip Dinlenmeliyim</td>
-              <td>backing vocals</td>
-              <td><a class="itunes" href="https://itunes.apple.com/album/gidip-dinlenmeliyim/385590291?i=385590341&l=en" target="_blank"></a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <script src="https://unpkg.com/navigo@6"></script>
-    <script src="/script.js?180702" type="text/javascript"></script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elif Dikeç</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:Inter, sans-serif;
+  background:white;
+  color:#222;
+  line-height:1.6;
+}
+
+header{
+  border-bottom:1px solid #eee;
+  padding:24px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+nav a{
+  margin-left:24px;
+  text-decoration:none;
+  color:#555;
+  font-size:14px;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:end;
+}
+
+.hero img{
+  width:100%;
+  border-radius:16px;
+}
+
+.photo-credit{
+  font-size:12px;
+  color:#666;
+  margin-top:6px;
+}
+
+h1{
+  font-weight:300;
+  font-size:56px;
+  margin:0;
+}
+
+.subtitle{
+  margin-top:10px;
+  color:#666;
+}
+
+.section-title{
+  font-size:22px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  margin-bottom:40px;
+}
+
+.works-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+.work{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  cursor:pointer;
+  background:#f4f4f4;
+}
+
+.work img{
+  width:100%;
+  display:block;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:20px;
+  opacity:0;
+  transition:opacity .3s;
+}
+
+.work:hover .overlay{
+  opacity:1;
+}
+
+.quote{
+  max-width:700px;
+  margin:120px auto;
+  text-align:center;
+  font-size:22px;
+  font-weight:300;
+}
+
+.quote small{
+  display:block;
+  margin-top:20px;
+  color:#777;
+}
+
+.about{
+  display:grid;
+  grid-template-columns:0.8fr 1.2fr;
+  gap:60px;
+}
+
+.about img{
+  width:100%;
+  border-radius:16px;
+}
+
+.contact a{
+  display:block;
+  margin-bottom:10px;
+  color:#333;
+  text-decoration:none;
+}
+
+iframe{
+  border:none;
+  width:100%;
+  height:380px;
+  margin-top:20px;
+}
+
+.player{
+  margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div>
+<div style="letter-spacing:.25em;text-transform:uppercase">Elif Dikeç</div>
+<div class="subtitle">Musician</div>
+</div>
+
+<nav>
+<a href="#works">Works</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<div class="container hero">
+<div>
+<img src="images/elif-live.jpg">
+<div class="photo-credit">Photo: Ahmet Emre Saka</div>
+</div>
+
+<div>
+<h1>Elif Dikeç</h1>
+<div class="subtitle">Musician</div>
+</div>
+</div>
+
+<div class="container" id="works">
+<div class="section-title">Works</div>
+
+<div class="works-grid">
+
+<div class="work" onclick="play('https://open.spotify.com/embed/track/4JcXOJaFb9kPUeI5ho7krH')">
+<img src="https://i.scdn.co/image/ab67616d0000b273e3a63d315ff78eaef9183f0a">
+<div class="overlay">Mabel Matiz — Zor Değil<br>Keys</div>
+</div>
+
+<div class="work" onclick="play('https://open.spotify.com/embed/track/7odIFvELcTabDW3ow9m84X')">
+<img src="https://i.scdn.co/image/ab67616d0000b273e3a63d315ff78eaef9183f0a">
+<div class="overlay">Mabel Matiz — Sarışın<br>Keys</div>
+</div>
+
+<div class="work" onclick="play('https://open.spotify.com/embed/track/1EbTbuKkGAnfvLqvZTjkef')">
+<img src="https://i.scdn.co/image/ab67616d0000b2731b0e0ef5c975c3ac3e07258a">
+<div class="overlay">C.A.R. — Playground<br>Vocals</div>
+</div>
+
+<div class="work" onclick="play('https://open.spotify.com/embed/track/1mdCOMF57AF8ccRiMjuup6')">
+<img src="https://i.scdn.co/image/ab67616d0000b273b7c7b3a80de4d1c41c4a6c41">
+<div class="overlay">Melike Şahin — Burdayım<br>Co‑Arranger</div>
+</div>
+
+</div>
+
+<div class="player">
+<iframe id="player"></iframe>
+</div>
+
+</div>
+
+<div class="quote">
+“This sad banger has been stuck in my head for a fortnight, cannot get enough of it. Anthemic hyper melancholy is so hard to pull off but when you do… it's approximately once per decade that I find one that pushes all my buttons so elegantly.”
+<small>— James Holden on “Yaktım Işıkları”, 2021</small>
+</div>
+
+<div class="container about" id="about">
+
+<div>
+<img src="images/elif-portrait.jpg">
+<div class="photo-credit">Photo: Civan Özkanoğlu — Kensaltown Studios NYC</div>
+</div>
+
+<div>
+<div class="section-title">About</div>
+
+<p>
+Elif Dikeç is an Istanbul-based pianist, producer, and composer. She holds degrees in Classical Piano Performance (BM) from Yıldız Technical University and in Popular Music (MM) from the Institut für Populäre Musik at Folkwang Universität der Künste.
+</p>
+
+<p>
+She has composed and performed for various musical projects in both Turkey and Germany, collaborating with artists as well as prestigious theatres such as the Düsseldorfer Schauspielhaus.
+</p>
+
+<p>
+She is currently the touring keyboardist and musical director (MD) for the live band of renowned Turkish singer-songwriter Melike Şahin.
+</p>
+
+<p>
+Dikeç continues her versatile work in production, arrangement, collaboration, and session musicianship between Istanbul and Cologne.
+</p>
+
+</div>
+
+</div>
+
+<div class="container contact" id="contact">
+
+<div class="section-title">Contact</div>
+
+<a href="https://www.instagram.com/paranoidbattledroid/" target="_blank">Instagram</a>
+<a href="mailto:elifdikec@gmail.com">elifdikec@gmail.com</a>
+
+</div>
+
+<script>
+function play(link){
+  document.getElementById('player').src = link;
+  window.scrollTo({top:document.getElementById('player').offsetTop-120,behavior:'smooth'});
+}
+</script>
+
+</body>
 </html>
