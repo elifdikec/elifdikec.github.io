@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Works — Elif Dikeç</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    body{
+      margin:0;
+      font-family:Inter, sans-serif;
+      background:white;
+      color:#222;
+      line-height:1.6;
+    }
+
+    header{
+      border-bottom:1px solid #eee;
+      padding:24px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    nav a{
+      margin-left:24px;
+      text-decoration:none;
+      color:#555;
+      font-size:14px;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:auto;
+      padding:60px 20px;
+    }
+
+    .intro{
+      margin-bottom:40px;
+    }
+
+    .intro h1{
+      font-weight:300;
+      font-size:44px;
+      margin:0 0 10px 0;
+    }
+
+    .intro p{
+      color:#666;
+      margin:0;
+    }
+
+    .works-layout{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:40px;
+      align-items:start;
+    }
+
+    .works-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:32px;
+    }
+
+    .work{
+      position:relative;
+      border-radius:16px;
+      overflow:hidden;
+      cursor:pointer;
+      background:#f4f4f4;
+      border:1px solid #eee;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+
+    .work:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    .work img{
+      width:100%;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      display:block;
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.58);
+      color:white;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:20px;
+      opacity:0;
+      transition:opacity .25s ease;
+    }
+
+    .work:hover .overlay{
+      opacity:1;
+    }
+
+    .meta{
+      padding:14px 4px 0 4px;
+    }
+
+    .artist{
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#777;
+      margin-bottom:4px;
+    }
+
+    .title{
+      font-size:18px;
+      color:#222;
+    }
+
+    .player-panel{
+      position:sticky;
+      top:30px;
+      border:1px solid #eee;
+      border-radius:16px;
+      padding:24px;
+      background:#fafafa;
+    }
+
+    .player-label{
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#777;
+      margin-bottom:10px;
+    }
+
+    .player-title{
+      font-size:26px;
+      font-weight:300;
+      margin-bottom:6px;
+    }
+
+    .player-artist{
+      color:#666;
+      margin-bottom:18px;
+    }
+
+    .player-role{
+      margin-bottom:18px;
+      color:#333;
+    }
+
+    iframe{
+      width:100%;
+      height:352px;
+      border:none;
+      border-radius:12px;
+      background:white;
+    }
+
+    .spotify-link{
+      display:inline-block;
+      margin-top:14px;
+      color:#333;
+      text-decoration:none;
+    }
+
+    .spotify-link:hover{
+      text-decoration:underline;
+    }
+
+    @media (max-width: 900px){
+      .works-layout{
+        grid-template-columns:1fr;
+      }
+
+      .player-panel{
+        position:static;
+      }
+    }
+
+    @media (max-width: 700px){
+      header{
+        padding:20px;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:14px;
+      }
+
+      nav a{
+        margin-left:0;
+        margin-right:18px;
+      }
+
+      .works-grid{
+        grid-template-columns:1fr;
+      }
+
+      .intro h1{
+        font-size:34px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <div style="letter-spacing:.25em;text-transform:uppercase">Elif Dikeç</div>
+      <div style="margin-top:10px;color:#666;">Musician</div>
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="works.html">Works</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="intro">
+      <h1>Works</h1>
+      <p>Selected releases and contributions, ordered from newest to older works.</p>
+    </div>
+
+    <div class="works-layout">
+      <div class="works-grid">
+
+        <div class="work" onclick="playWork('Mabel Matiz','Zor Değil (Mabel’s Version)','Keys','https://open.spotify.com/embed/track/4JcXOJaFb9kPUeI5ho7krH?utm_source=generator','https://open.spotify.com/track/4JcXOJaFb9kPUeI5ho7krH')">
+          <img src="images/zor-degil.jpg" alt="Mabel Matiz - Zor Değil (Mabel’s Version)">
+          <div class="overlay">Keys</div>
+          <div class="meta">
+            <div class="artist">Mabel Matiz</div>
+            <div class="title">Zor Değil (Mabel’s Version)</div>
+          </div>
+        </div>
+
+        <div class="work" onclick="playWork('Mabel Matiz','Sarışın (Mabel’s Version)','Keys','https://open.spotify.com/embed/track/7odIFvELcTabDW3ow9m84X?utm_source=generator','https://open.spotify.com/track/7odIFvELcTabDW3ow9m84X')">
+          <img src="images/sarisin.jpg" alt="Mabel Matiz - Sarışın (Mabel’s Version)">
+          <div class="overlay">Keys</div>
+          <div class="meta">
+            <div class="artist">Mabel Matiz</div>
+            <div class="title">Sarışın (Mabel’s Version)</div>
+          </div>
+        </div>
+
+        <div class="work" onclick="playWork('C.A.R.','Playground','Vocals','https://open.spotify.com/embed/track/1EbTbuKkGAnfvLqvZTjkef?utm_source=generator','https://open.spotify.com/track/1EbTbuKkGAnfvLqvZTjkef')">
+          <img src="images/playground.jpg" alt="C.A.R. - Playground">
+          <div class="overlay">Vocals</div>
+          <div class="meta">
+            <div class="artist">C.A.R.</div>
+            <div class="title">Playground</div>
+          </div>
+        </div>
+
+        <div class="work" onclick="playWork('Rewşan','Hînar','Synthesizers for tracks 1, 2, 3, 5, 8','https://open.spotify.com/embed/album/6PE5YxyDrzcVw09YQEwSzk?utm_source=generator','https://open.spotify.com/album/6PE5YxyDrzcVw09YQEwSzk')">
+          <img src="images/hinar.jpg" alt="Rewşan - Hînar">
+          <div class="overlay">Synthesizers for tracks 1, 2, 3, 5, 8</div>
+          <div class="meta">
+            <div class="artist">Rewşan</div>
+            <div class="title">Hînar</div>
+          </div>
+        </div>
+
+        <div class="work" onclick="playWork('Melike Şahin','Burdayım','Co-Arranger','https://open.spotify.com/embed/track/1mdCOMF57AF8ccRiMjuup6?utm_source=generator','https://open.spotify.com/track/1mdCOMF57AF8ccRiMjuup6')">
+          <img src="images/burdayim.jpg" alt="Melike Şahin - Burdayım">
+          <div class="overlay">Co-Arranger</div>
+          <div class="meta">
+            <div class="artist">Melike Şahin</div>
+            <div class="title">Burdayım</div>
+          </div>
+        </div>
+
+        <div class="work" onclick="playWork('Tuğçe Şenoğul','Sensin Bunlara Sebep','Strings Arrangement','https://open.spotify.com/embed/track/4PgXxrIXTqM1RVvAQtdrCH?utm_source=generator','https://open.spotify.com/track/4PgXxrIXTqM1RVvAQtdrCH')">
+          <img src="images/sensin-bunlara-sebep.jpg" alt="Tuğçe Şenoğul - Sensin Bunlara Sebep">
+          <div class="overlay">Strings Arrangement</div>
+          <div class="meta">
+            <div class="artist">Tuğçe Şenoğul</div>
+            <div class="title">Sensin Bunlara Sebep</div>
+          </div>
+        </div>
+
+        <div class="work" onclick="playWork('Mabel Matiz','Müphem','Piano','https://open.spotify.com/embed/track/4rH2IQ3tNg5clDOnzut7RV?utm_source=generator','https://open.spotify.com/track/4rH2IQ3tNg5clDOnzut7RV')">
+          <img src="images/muphem.jpg" alt="Mabel Matiz - Müphem">
+          <div class="overlay">Piano</div>
+          <div class="meta">
+            <div class="artist">Mabel Matiz</div>
+            <div class="title">Müphem</div>
+          </div>
+        </div>
+
+        <div class="work" onclick="playWork('Tuğçe Şenoğul','Serseri','Arranger','https://open.spotify.com/embed/track/1dxmn72LNiTYaATaW5o18t?utm_source=generator','https://open.spotify.com/track/1dxmn72LNiTYaATaW5o18t')">
+          <img src="images/serseri.jpg" alt="Tuğçe Şenoğul - Serseri">
+          <div class="overlay">Arranger</div>
+          <div class="meta">
+            <div class="artist">Tuğçe Şenoğul</div>
+            <div class="title">Serseri</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="player-panel">
+        <div class="player-label">Listening</div>
+        <div class="player-title" id="playerTitle">Select a work</div>
+        <div class="player-artist" id="playerArtist">Click any cover to listen</div>
+        <div class="player-role" id="playerRole"></div>
+        <iframe id="spotifyPlayer" src=""></iframe>
+        <a class="spotify-link" id="spotifyLink" href="" target="_blank"></a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function playWork(artist, title, role, embedUrl, spotifyUrl){
+      document.getElementById('playerTitle').textContent = title;
+      document.getElementById('playerArtist').textContent = artist;
+      document.getElementById('playerRole').textContent = role;
+      document.getElementById('spotifyPlayer').src = embedUrl;
+      document.getElementById('spotifyLink').href = spotifyUrl;
+      document.getElementById('spotifyLink').textContent = 'Open in Spotify';
+    }
+  </script>
+
+</body>
+</html>
