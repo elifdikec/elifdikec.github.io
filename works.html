@@ -11,7 +11,7 @@
       font-family:Inter, sans-serif;
       background:white;
       color:#222;
-      line-height:1.6;
+      line-height:1.5;
     }
 
     header{
@@ -32,126 +32,140 @@
     }
 
     .container{
-      max-width:1100px;
+      max-width:1200px;
       margin:auto;
-      padding:60px 20px;
+      padding:48px 20px 72px;
     }
 
     .intro{
-      margin-bottom:40px;
+      margin-bottom:32px;
     }
 
     .intro h1{
       font-weight:300;
-      font-size:44px;
-      margin:0 0 10px 0;
+      font-size:38px;
+      margin:0 0 8px 0;
     }
 
     .intro p{
-      color:#666;
       margin:0;
+      color:#666;
+      font-size:15px;
     }
 
     .works-layout{
       display:grid;
-      grid-template-columns:1fr 360px;
-      gap:40px;
+      grid-template-columns:minmax(0, 1fr) 340px;
+      gap:36px;
       align-items:start;
     }
 
     .works-grid{
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:32px;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:18px;
     }
 
     .work{
-      position:relative;
-      border-radius:16px;
-      overflow:hidden;
       cursor:pointer;
-      background:#f4f4f4;
-      border:1px solid #eee;
-      transition:transform .2s ease, box-shadow .2s ease;
     }
 
-    .work:hover{
+    .cover{
+      position:relative;
+      aspect-ratio:1 / 1;
+      border:1px solid #e9e9e9;
+      border-radius:14px;
+      background:#f6f6f6;
+      overflow:hidden;
+      transition:transform .18s ease, box-shadow .18s ease;
+      display:flex;
+      align-items:flex-end;
+      justify-content:flex-start;
+      padding:14px;
+    }
+
+    .cover:hover{
       transform:translateY(-2px);
-      box-shadow:0 8px 30px rgba(0,0,0,0.08);
+      box-shadow:0 8px 24px rgba(0,0,0,0.06);
     }
 
-    .work img{
-      width:100%;
-      aspect-ratio:1/1;
-      object-fit:cover;
-      display:block;
+    .cover-label{
+      font-size:11px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#777;
     }
 
     .overlay{
       position:absolute;
       inset:0;
-      background:rgba(0,0,0,0.58);
+      background:rgba(0,0,0,0.62);
       color:white;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      padding:20px;
       opacity:0;
-      transition:opacity .25s ease;
+      transition:opacity .22s ease;
+      display:flex;
+      align-items:flex-end;
+      padding:14px;
+      font-size:13px;
+      line-height:1.4;
     }
 
-    .work:hover .overlay{
+    .cover:hover .overlay{
       opacity:1;
     }
 
     .meta{
-      padding:14px 4px 0 4px;
+      padding:10px 2px 0;
     }
 
     .artist{
-      font-size:12px;
-      letter-spacing:.08em;
+      font-size:11px;
+      letter-spacing:.12em;
       text-transform:uppercase;
       color:#777;
       margin-bottom:4px;
     }
 
     .title{
-      font-size:18px;
+      font-size:15px;
       color:#222;
+      line-height:1.35;
     }
 
     .player-panel{
       position:sticky;
-      top:30px;
+      top:24px;
       border:1px solid #eee;
       border-radius:16px;
-      padding:24px;
+      padding:22px;
       background:#fafafa;
     }
 
     .player-label{
-      font-size:12px;
-      letter-spacing:.08em;
+      font-size:11px;
+      letter-spacing:.12em;
       text-transform:uppercase;
       color:#777;
       margin-bottom:10px;
     }
 
     .player-title{
-      font-size:26px;
+      font-size:24px;
       font-weight:300;
       margin-bottom:6px;
+      line-height:1.25;
     }
 
     .player-artist{
       color:#666;
-      margin-bottom:18px;
+      margin-bottom:14px;
+      font-size:14px;
     }
 
     .player-role{
       margin-bottom:18px;
       color:#333;
+      font-size:14px;
     }
 
     iframe{
@@ -167,23 +181,32 @@
       margin-top:14px;
       color:#333;
       text-decoration:none;
+      font-size:14px;
     }
 
     .spotify-link:hover{
       text-decoration:underline;
     }
 
-    @media (max-width: 900px){
+    @media (max-width: 1024px){
+      .works-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+      .works-layout{
+        grid-template-columns:minmax(0, 1fr) 320px;
+      }
+    }
+
+    @media (max-width: 860px){
       .works-layout{
         grid-template-columns:1fr;
       }
-
       .player-panel{
         position:static;
       }
     }
 
-    @media (max-width: 700px){
+    @media (max-width: 640px){
       header{
         padding:20px;
         flex-direction:column;
@@ -197,11 +220,12 @@
       }
 
       .works-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr 1fr;
+        gap:14px;
       }
 
       .intro h1{
-        font-size:34px;
+        font-size:32px;
       }
     }
   </style>
@@ -225,82 +249,150 @@
   <div class="container">
     <div class="intro">
       <h1>Works</h1>
-      <p>Selected releases and contributions, ordered from newest to older works.</p>
+      <p>Hover to see contribution. Click to listen.</p>
     </div>
 
     <div class="works-layout">
       <div class="works-grid">
 
         <div class="work" onclick="playWork('Mabel Matiz','Zor Değil (Mabel’s Version)','Keys','https://open.spotify.com/embed/track/4JcXOJaFb9kPUeI5ho7krH?utm_source=generator','https://open.spotify.com/track/4JcXOJaFb9kPUeI5ho7krH')">
-          <img src="images/zor-degil.jpg" alt="Mabel Matiz - Zor Değil (Mabel’s Version)">
-          <div class="overlay">Keys</div>
-          <div class="meta">
-            <div class="artist">Mabel Matiz</div>
-            <div class="title">Zor Değil (Mabel’s Version)</div>
-          </div>
+          <div class="cover"><div class="cover-label">2025</div><div class="overlay">Keys</div></div>
+          <div class="meta"><div class="artist">Mabel Matiz</div><div class="title">Zor Değil (Mabel’s Version)</div></div>
         </div>
 
         <div class="work" onclick="playWork('Mabel Matiz','Sarışın (Mabel’s Version)','Keys','https://open.spotify.com/embed/track/7odIFvELcTabDW3ow9m84X?utm_source=generator','https://open.spotify.com/track/7odIFvELcTabDW3ow9m84X')">
-          <img src="images/sarisin.jpg" alt="Mabel Matiz - Sarışın (Mabel’s Version)">
-          <div class="overlay">Keys</div>
-          <div class="meta">
-            <div class="artist">Mabel Matiz</div>
-            <div class="title">Sarışın (Mabel’s Version)</div>
-          </div>
+          <div class="cover"><div class="cover-label">2025</div><div class="overlay">Keys</div></div>
+          <div class="meta"><div class="artist">Mabel Matiz</div><div class="title">Sarışın (Mabel’s Version)</div></div>
         </div>
 
         <div class="work" onclick="playWork('C.A.R.','Playground','Vocals','https://open.spotify.com/embed/track/1EbTbuKkGAnfvLqvZTjkef?utm_source=generator','https://open.spotify.com/track/1EbTbuKkGAnfvLqvZTjkef')">
-          <img src="images/playground.jpg" alt="C.A.R. - Playground">
-          <div class="overlay">Vocals</div>
-          <div class="meta">
-            <div class="artist">C.A.R.</div>
-            <div class="title">Playground</div>
-          </div>
+          <div class="cover"><div class="cover-label">2025</div><div class="overlay">Vocals</div></div>
+          <div class="meta"><div class="artist">C.A.R.</div><div class="title">Playground</div></div>
         </div>
 
         <div class="work" onclick="playWork('Rewşan','Hînar','Synthesizers for tracks 1, 2, 3, 5, 8','https://open.spotify.com/embed/album/6PE5YxyDrzcVw09YQEwSzk?utm_source=generator','https://open.spotify.com/album/6PE5YxyDrzcVw09YQEwSzk')">
-          <img src="images/hinar.jpg" alt="Rewşan - Hînar">
-          <div class="overlay">Synthesizers for tracks 1, 2, 3, 5, 8</div>
-          <div class="meta">
-            <div class="artist">Rewşan</div>
-            <div class="title">Hînar</div>
-          </div>
+          <div class="cover"><div class="cover-label">2024</div><div class="overlay">Synthesizers for tracks 1, 2, 3, 5, 8</div></div>
+          <div class="meta"><div class="artist">Rewşan</div><div class="title">Hînar</div></div>
         </div>
 
         <div class="work" onclick="playWork('Melike Şahin','Burdayım','Co-Arranger','https://open.spotify.com/embed/track/1mdCOMF57AF8ccRiMjuup6?utm_source=generator','https://open.spotify.com/track/1mdCOMF57AF8ccRiMjuup6')">
-          <img src="images/burdayim.jpg" alt="Melike Şahin - Burdayım">
-          <div class="overlay">Co-Arranger</div>
-          <div class="meta">
-            <div class="artist">Melike Şahin</div>
-            <div class="title">Burdayım</div>
-          </div>
+          <div class="cover"><div class="cover-label">2024</div><div class="overlay">Co-Arranger</div></div>
+          <div class="meta"><div class="artist">Melike Şahin</div><div class="title">Burdayım</div></div>
         </div>
 
         <div class="work" onclick="playWork('Tuğçe Şenoğul','Sensin Bunlara Sebep','Strings Arrangement','https://open.spotify.com/embed/track/4PgXxrIXTqM1RVvAQtdrCH?utm_source=generator','https://open.spotify.com/track/4PgXxrIXTqM1RVvAQtdrCH')">
-          <img src="images/sensin-bunlara-sebep.jpg" alt="Tuğçe Şenoğul - Sensin Bunlara Sebep">
-          <div class="overlay">Strings Arrangement</div>
-          <div class="meta">
-            <div class="artist">Tuğçe Şenoğul</div>
-            <div class="title">Sensin Bunlara Sebep</div>
-          </div>
+          <div class="cover"><div class="cover-label">2023</div><div class="overlay">Strings Arrangement</div></div>
+          <div class="meta"><div class="artist">Tuğçe Şenoğul</div><div class="title">Sensin Bunlara Sebep</div></div>
         </div>
 
         <div class="work" onclick="playWork('Mabel Matiz','Müphem','Piano','https://open.spotify.com/embed/track/4rH2IQ3tNg5clDOnzut7RV?utm_source=generator','https://open.spotify.com/track/4rH2IQ3tNg5clDOnzut7RV')">
-          <img src="images/muphem.jpg" alt="Mabel Matiz - Müphem">
-          <div class="overlay">Piano</div>
-          <div class="meta">
-            <div class="artist">Mabel Matiz</div>
-            <div class="title">Müphem</div>
-          </div>
+          <div class="cover"><div class="cover-label">2023</div><div class="overlay">Piano</div></div>
+          <div class="meta"><div class="artist">Mabel Matiz</div><div class="title">Müphem</div></div>
         </div>
 
         <div class="work" onclick="playWork('Tuğçe Şenoğul','Serseri','Arranger','https://open.spotify.com/embed/track/1dxmn72LNiTYaATaW5o18t?utm_source=generator','https://open.spotify.com/track/1dxmn72LNiTYaATaW5o18t')">
-          <img src="images/serseri.jpg" alt="Tuğçe Şenoğul - Serseri">
-          <div class="overlay">Arranger</div>
-          <div class="meta">
-            <div class="artist">Tuğçe Şenoğul</div>
-            <div class="title">Serseri</div>
-          </div>
+          <div class="cover"><div class="cover-label">2023</div><div class="overlay">Arranger</div></div>
+          <div class="meta"><div class="artist">Tuğçe Şenoğul</div><div class="title">Serseri</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Nacht 84','The Baggage','Vocals','https://open.spotify.com/embed/track/2DapAvqy45IYBncEXwxHxT?utm_source=generator','https://open.spotify.com/track/2DapAvqy45IYBncEXwxHxT')">
+          <div class="cover"><div class="cover-label">2022</div><div class="overlay">Vocals</div></div>
+          <div class="meta"><div class="artist">Nacht 84</div><div class="title">The Baggage</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Nilipek','Çırılçıplak','Arranger','https://open.spotify.com/embed/track/5KEgb0wFpDooHXX1anL57i?utm_source=generator','https://open.spotify.com/track/5KEgb0wFpDooHXX1anL57i')">
+          <div class="cover"><div class="cover-label">2022</div><div class="overlay">Arranger</div></div>
+          <div class="meta"><div class="artist">Nilipek</div><div class="title">Çırılçıplak</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Özge Ürer','Sonu Baştan Belliydi — Elif Dikeç Remix','Arranger','https://open.spotify.com/embed/track/6HuzeQJ19zluo65Lo8Z95u?utm_source=generator','https://open.spotify.com/track/6HuzeQJ19zluo65Lo8Z95u')">
+          <div class="cover"><div class="cover-label">2022</div><div class="overlay">Arranger</div></div>
+          <div class="meta"><div class="artist">Özge Ürer</div><div class="title">Sonu Baştan Belliydi — Elif Dikeç Remix</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Emir Aksoy','Kanatlı At','Keys','https://open.spotify.com/embed/album/5Xr6A2zFplhMwWXZH1GhtC?utm_source=generator','https://open.spotify.com/album/5Xr6A2zFplhMwWXZH1GhtC')">
+          <div class="cover"><div class="cover-label">2021</div><div class="overlay">Keys</div></div>
+          <div class="meta"><div class="artist">Emir Aksoy</div><div class="title">Kanatlı At</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Emir Aksoy','Tanışma','Keys','https://open.spotify.com/embed/track/00E5i7O00u7X2WAJAJeSXC?utm_source=generator','https://open.spotify.com/track/00E5i7O00u7X2WAJAJeSXC')">
+          <div class="cover"><div class="cover-label">2021</div><div class="overlay">Keys</div></div>
+          <div class="meta"><div class="artist">Emir Aksoy</div><div class="title">Tanışma</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Bade Nosa & Selim Kırılmaz','Zamansız Kasımpatı','','https://open.spotify.com/embed/track/2viJf3V4Z2fwQLYmtulVyB?utm_source=generator','https://open.spotify.com/track/2viJf3V4Z2fwQLYmtulVyB')">
+          <div class="cover"><div class="cover-label">2020</div><div class="overlay">Release</div></div>
+          <div class="meta"><div class="artist">Bade Nosa & Selim Kırılmaz</div><div class="title">Zamansız Kasımpatı</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Bade Nosa','İçimizdeki Az Danslı Rework','Co-Arranger','https://open.spotify.com/embed/track/5qfYKCOegbXGiQjrj90YIK?utm_source=generator','https://open.spotify.com/track/5qfYKCOegbXGiQjrj90YIK')">
+          <div class="cover"><div class="cover-label">2020</div><div class="overlay">Co-Arranger</div></div>
+          <div class="meta"><div class="artist">Bade Nosa</div><div class="title">İçimizdeki Az Danslı Rework</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Melike Şahin','Bedelini Ödedim','Arranger, Co-Composer','https://open.spotify.com/embed/track/0YMxc4aHGobeJYpMVV8mA9?utm_source=generator','https://open.spotify.com/track/0YMxc4aHGobeJYpMVV8mA9')">
+          <div class="cover"><div class="cover-label">2019</div><div class="overlay">Arranger, Co-Composer</div></div>
+          <div class="meta"><div class="artist">Melike Şahin</div><div class="title">Bedelini Ödedim</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Elif Dikeç','Yaktım Işıkları / İtmeden','Writer, Arranger, Vocals','https://open.spotify.com/embed/album/3Um80tuk5L5mZaDoQt5g8u?utm_source=generator','https://open.spotify.com/album/3Um80tuk5L5mZaDoQt5g8u')">
+          <div class="cover"><div class="cover-label">2018</div><div class="overlay">Writer, Arranger, Vocals</div></div>
+          <div class="meta"><div class="artist">Elif Dikeç</div><div class="title">Yaktım Işıkları / İtmeden</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Gantz','Rabid','Vocals','https://open.spotify.com/embed/track/56o4dxvvS1MB1KmEfpQsK3?utm_source=generator','https://open.spotify.com/track/56o4dxvvS1MB1KmEfpQsK3')">
+          <div class="cover"><div class="cover-label">2017</div><div class="overlay">Vocals</div></div>
+          <div class="meta"><div class="artist">Gantz</div><div class="title">Rabid</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Gras','Turmoil','Writer, Arranger, Vocals','https://open.spotify.com/embed/album/0xK9trBCrdy8HnWKLBxkDL?utm_source=generator','https://open.spotify.com/album/0xK9trBCrdy8HnWKLBxkDL')">
+          <div class="cover"><div class="cover-label">2017</div><div class="overlay">Writer, Arranger, Vocals</div></div>
+          <div class="meta"><div class="artist">Gras</div><div class="title">Turmoil</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Tired Eyes Kingdom','Burn the Castle','Writer, Arranger, Vocals','https://open.spotify.com/embed/album/5ZLo5jrXR3pQtr7AFbix8D?utm_source=generator','https://open.spotify.com/album/5ZLo5jrXR3pQtr7AFbix8D')">
+          <div class="cover"><div class="cover-label">2016</div><div class="overlay">Writer, Arranger, Vocals</div></div>
+          <div class="meta"><div class="artist">Tired Eyes Kingdom</div><div class="title">Burn the Castle</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Tired Eyes Kingdom','Colombia','Writer, Arranger, Vocals','https://open.spotify.com/embed/track/0PrAiVZog8OoSYK68yMz6x?utm_source=generator','https://open.spotify.com/track/0PrAiVZog8OoSYK68yMz6x')">
+          <div class="cover"><div class="cover-label">2016</div><div class="overlay">Writer, Arranger, Vocals</div></div>
+          <div class="meta"><div class="artist">Tired Eyes Kingdom</div><div class="title">Colombia</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Tired Eyes Kingdom','Another Moon','Writer, Arranger, Vocals','https://open.spotify.com/embed/track/0l6JCsPKyoFmn8711VujtP?utm_source=generator','https://open.spotify.com/track/0l6JCsPKyoFmn8711VujtP')">
+          <div class="cover"><div class="cover-label">2016</div><div class="overlay">Writer, Arranger, Vocals</div></div>
+          <div class="meta"><div class="artist">Tired Eyes Kingdom</div><div class="title">Another Moon</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Tired Eyes Kingdom','Tired Eyes Kingdom','Writer, Arranger, Vocals','https://open.spotify.com/embed/album/4JSI6TnS8vTJv8ss2IZZQP?utm_source=generator','https://open.spotify.com/album/4JSI6TnS8vTJv8ss2IZZQP')">
+          <div class="cover"><div class="cover-label">2016</div><div class="overlay">Writer, Arranger, Vocals</div></div>
+          <div class="meta"><div class="artist">Tired Eyes Kingdom</div><div class="title">Tired Eyes Kingdom</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Gantz','Fugazi','Vocals','https://open.spotify.com/embed/track/2YRCMWKTHmg6da2CkrffTQ?utm_source=generator','https://open.spotify.com/track/2YRCMWKTHmg6da2CkrffTQ')">
+          <div class="cover"><div class="cover-label">2015</div><div class="overlay">Vocals</div></div>
+          <div class="meta"><div class="artist">Gantz</div><div class="title">Fugazi</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Stiver','Whatever','Vocals','https://open.spotify.com/embed/track/29Y6KiVBtxnAXYSVOaIAEh?utm_source=generator','https://open.spotify.com/track/29Y6KiVBtxnAXYSVOaIAEh')">
+          <div class="cover"><div class="cover-label">2015</div><div class="overlay">Vocals</div></div>
+          <div class="meta"><div class="artist">Stiver</div><div class="title">Whatever</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Sonae','We Are Here','Piano','https://open.spotify.com/embed/track/5gdWWLeBweH2Muooj1RndM?utm_source=generator','https://open.spotify.com/track/5gdWWLeBweH2Muooj1RndM')">
+          <div class="cover"><div class="cover-label">2014</div><div class="overlay">Piano</div></div>
+          <div class="meta"><div class="artist">Sonae</div><div class="title">We Are Here</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Danslı Parti II','Zeytin Marşı','Backing Vocals','https://open.spotify.com/embed/track/5gy4yNdSaChCcGIF7xaT0z?utm_source=generator','https://open.spotify.com/track/5gy4yNdSaChCcGIF7xaT0z')">
+          <div class="cover"><div class="cover-label">2013</div><div class="overlay">Backing Vocals</div></div>
+          <div class="meta"><div class="artist">Danslı Parti II</div><div class="title">Zeytin Marşı</div></div>
+        </div>
+
+        <div class="work" onclick="playWork('Ceylan Ertem','Gidip Dinlenmeliyim','Backing Vocals','https://open.spotify.com/embed/track/0VOQt5179G4mO6EBaJ7mWB?utm_source=generator','https://open.spotify.com/track/0VOQt5179G4mO6EBaJ7mWB')">
+          <div class="cover"><div class="cover-label">2012</div><div class="overlay">Backing Vocals</div></div>
+          <div class="meta"><div class="artist">Ceylan Ertem</div><div class="title">Gidip Dinlenmeliyim</div></div>
         </div>
 
       </div>
@@ -308,7 +400,7 @@
       <div class="player-panel">
         <div class="player-label">Listening</div>
         <div class="player-title" id="playerTitle">Select a work</div>
-        <div class="player-artist" id="playerArtist">Click any cover to listen</div>
+        <div class="player-artist" id="playerArtist">Click any item to listen</div>
         <div class="player-role" id="playerRole"></div>
         <iframe id="spotifyPlayer" src=""></iframe>
         <a class="spotify-link" id="spotifyLink" href="" target="_blank"></a>
