@@ -40,16 +40,36 @@ nav a{
 }
 
 .hero{
-  display:flex;
-  justify-content:center;
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:60px;
   align-items:center;
-  padding-top:30px;
+  padding-top:40px;
 }
+
+.hero-content{
+  max-width:420px;
+}
+
+.hero-role{
+  margin-top:14px;
+  font-size:16px;
+  color:#555;
+}
+
 
 .hero img{
   width:100%;
-  max-width:420px;
+  max-width:300px;
   border-radius:16px;
+}
+
+.hero-meta{
+  margin-top:14px;
+  text-align:center;
+  color:#666;
+  font-size:14px;
+  letter-spacing:.05em;
 }
 
 .photo-credit{
@@ -176,9 +196,19 @@ iframe{
 </header>
 
 <div class="container hero">
+
 <div>
 <img src="images/elif-live.jpg">
 <div class="photo-credit">Photo: Ahmet Emre Saka</div>
+</div>
+
+<div class="hero-content">
+<h1>Elif Dikeç</h1>
+<div class="subtitle">Musician</div>
+<div class="hero-role">Keys, Arranger, Composer</div>
+</div>
+
+</div>
 </div>
 </div>
 
@@ -187,7 +217,7 @@ iframe{
 <div class="section-title">Contact</div>
 
 <a href="mailto:elifdikec@gmail.com">Email</a>
-<a href="https://www.instagram.com/paranoidbattledroid/" target="_blank">Instagram</a>
+<a href="https://www.instagram.com/paranoidbattledroid/" target="_blank">IG</a>
 
 </div>
 
